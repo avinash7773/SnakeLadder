@@ -5,25 +5,32 @@ class SnakeLadder{
 		int if_Snake = 5;
 		int if_noPlay = 0;
 		int player_Position=0;
-		int dice_num = (int) (Math.floor(Math.random() *10) % 7);
-		if(dice_num == if_noPlay){
-			System.out.println("player no play and get  number="+player_Position);
-		}else if(dice_num == if_Ladder){
-			player_Position = player_Position + dice_num;
-			System.out.println("Player at Ladder and get number="+player_Position);
-		}else if(dice_num == if_Snake){
-			if(player_Position == 0){
-				player_Position = player_Position;
+		int winning_Position=100;
+		while(player_Position <= winning_Position){
+			int dice_num = (int) (Math.floor(Math.random() *10) % 7);
+
+			if(dice_num == if_noPlay){
+				System.out.println("player no play and get  number="+player_Position);
+			}else if(dice_num == if_Ladder){
+				player_Position = player_Position + dice_num;
+				System.out.println("Player at Ladder and get number="+player_Position);
+			}else if(dice_num == if_Snake){
+				if(player_Position == 0){
+					player_Position = player_Position;
+				}else{
+					player_Position = player_Position - dice_num;
+				}
+				System.out.println("player at Snake and get number="+player_Position);
 			}else{
-				player_Position = player_Position - dice_num;
+				player_Position = player_Position + dice_num;
+				System.out.println("player play at number="+player_Position);
 			}
-			System.out.println("player at Snake and get number="+player_Position);
-		}else{
-			player_Position = player_Position + dice_num;
-			System.out.println("player play at number="+player_Position);
 		}
+		System.out.println("Player win");
 
 	}
+
+
 	public static void main(String[] argv){
 	SnakeLadder obj = new SnakeLadder();
 	obj.play();
