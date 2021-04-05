@@ -6,8 +6,10 @@ class SnakeLadder{
 		int if_noPlay = 0;
 		int player_Position=0;
 		int winning_Position=100;
+		int dice_played=0;
 		while(player_Position < winning_Position){
 			int dice_num = (int) (Math.floor(Math.random() *10) % 7);
+			dice_played++;
 
 			if(dice_num == if_noPlay){
 				System.out.println("player no play and get  number="+player_Position);
@@ -33,6 +35,7 @@ class SnakeLadder{
 			}
 		}
 		System.out.println("Player win");
+		System.out.println("NUmber of time dice was used="+dice_played);
 
 	}
 
